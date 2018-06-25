@@ -1,0 +1,87 @@
+<nav class="navbar navbar-light bg-warning ">
+    <a class="navbar-brand" href="#" style="width: 20%;font-size: 25px; padding: 10px;">
+       <span style="font-weight: bold ; color: #483D8B">Boots</span>  
+         <span style="font-weight: bold;color: white;">trap</span>
+  
+    </a>
+  </nav>
+<div class="container" style="margin: 15px;">
+  <!--<section>
+    <article>
+      <h3>Interpolation</h3>
+      <p>String renderizada com Interpolation : {{ url }}</p>  
+      <p>Curtir o curso angular : {{ cursoAngular &&  getCurtir()}}</p>   
+    </article> 
+</section>
+-->
+<section>
+  <div class="row">
+    <div class="col-md-4">
+      
+      <div class="form-group">
+        
+        <label>Escolha seu Alerta</label>
+        <!-- Variavel de template (#classe)-->
+        <select #classe (change)="0" class="form-control">
+          <option value="">Selecione</option>
+          <option value="alert-success">Sucesso</option>
+          <option value="alert-info">Info</option>
+          <option value="alert-warning">Warning</option> 
+        </select>
+      </div> 
+      <div class="form-group">
+        <p>{{ classe.value }}</p>
+        <!--Class binding-->
+        <div class="alert " [class.alert-success]="classe.value == 'alert-success'" *ngIf="classe.value == 'alert-success' ||classe.value == 'all' ">Sucesso</div>
+        <div class="alert " [class.alert-info]="classe.value == 'alert-info'" *ngIf="classe.value == 'alert-info' ||classe.value == 'all'">Info</div>
+        <div class="alert " [class.alert-warning]="classe.value == 'alert-warning'" *ngIf="classe.value == 'alert-warning' ||classe.value == 'all'">Warning</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="row">
+  <div class="col-md-6">
+
+    <section>
+      <article>
+        <h2>Event Binding</h2>
+      </article>
+      <div class="form-group">
+        <button type="button" class="btn btn-primary"  (click)="botaoClicado();">Me clique!</button>
+      </div>
+      <div class="form-group">
+        <p>{{ valorAtual }}</p>
+        <p>{{ valorSalvo }}</p>
+        
+      </div>
+      <div class="form-group">          <!--Capturando eventos-->                                              <!--Outra forma de pegar o valor-->
+        <input type="text" (keyup)="onkeyUp($event)" (keyup.enter)="salvarValor(classeIput.value)" class="form-control"  #classeIput>
+      </div>
+    </section>
+  </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+      
+    <section>
+      <article>
+        <h2>Two-way Data-Binding</h2>
+      </article>
+      <div>
+        <!--Oque é executado por tras ngModel
+          <input type="text"
+          [value]="nome"
+          (input)="nome  = $event.target.value"
+          >
+        -->
+        <input type="text" [(ngModel)]="nome" class="form-control">  
+        <p>{{ nome }}</p>
+      </div>
+  
+
+      
+</section>
+  </div>
+ </div> 
+</div>
